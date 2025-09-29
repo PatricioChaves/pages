@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Painel de Controle</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { margin: 10px; padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Meu Painel de Controle</h1>
+
+  <!-- Botão para abrir site -->
+  <button onclick="window.open('https://www.uol.com.br')">Abrir UOL</button>
+
+  <!-- Botão para abrir software local -->
+  <button onclick="abrirSoftware()">Abrir Bloco de Notas</button>
+
+  <script>
+    function abrirSoftware() {
+      fetch('abrir-notepad.bat')
+        .then(() => alert('Bloco de Notas aberto!'))
+        .catch(() => alert('Erro ao abrir o software.'));
+    }
+  </script>
+</body>
+</html>
