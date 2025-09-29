@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Área</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Área</h1>
+
+  <label for="frente">Metragem da frente (em metros):</label>
+  <input type="number" id="frente" step="0.01" placeholder="Ex: 10.50">
+
+  <label for="fundo">Metragem do fundo (em metros):</label>
+  <input type="number" id="fundo" step="0.01" placeholder="Ex: 20.75">
+
+  <button onclick="calcularArea()">Calcular Área</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function calcularArea() {
+      const frente = parseFloat(document.getElementById('frente').value);
+      const fundo = parseFloat(document.getElementById('fundo').value);
+
+      if (isNaN(frente) || isNaN(fundo)) {
+        document.getElementById('resultado').textContent = 'Por favor, insira valores válidos.';
+        return;
+      }
+
+      const area = frente * fundo;
+      const areaFormatada = area.toFixed(2).replace('.', ','); // Formato brasileiro
+
+      document.getElementById('resultado').textContent = `Área total: ${areaFormatada} m²`;
+    }
+  </script>
+</body>
+</html>
